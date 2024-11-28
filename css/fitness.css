@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #28a745;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Programs Section */
+.programs {
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+.programs h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #28a745;
+}
+
+.program-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.program-item img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.program-item h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.program-item p {
+    margin-top: 0.5rem;
+    color: #666;
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 2rem;
+    background-color: #f0f4f8;
+}
+
+.benefits h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #28a745;
+}
+
+.benefits ul {
+    list-style-type: disc;
+    margin: 0 auto;
+    max-width: 600px;
+    padding-left: 2rem;
+}
+
+.benefits li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 2rem;
+    background-color: #28a745;
+    color: white;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    margin-bottom: 1.5rem;
+}
+
+.contact .btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #28a745;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact .btn:hover {
+    background-color: #eaeaea;
+}
