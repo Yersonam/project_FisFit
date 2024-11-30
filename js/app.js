@@ -35,3 +35,66 @@ botonesMasInfo.forEach((boton) => {
     boton.style.transform = 'scale(1)';
   });
 });
+// Array de testimonios (puedes agregar más)
+const testimoniosData = [
+  { text: "Gracias a FisFit, pude recuperar mi movilidad y sentirme mucho mejor. El equipo es increíblemente atento y profesional, me acompañaron en cada paso del proceso. ¡Recomiendo totalmente su servicio!", user: "Helida Huaman" },
+  { text: "Un servicio excelente, el tratamiento fue muy efectivo y los resultados superaron mis expectativas. ¡Muchas gracias por todo!", user: "Carlos Lopez" },
+  { text: "FisFit me ayudó a mejorar mi calidad de vida, no solo físicamente, sino también emocionalmente. El equipo es muy profesional y cercano. ¡Los recomiendo sin dudar!", user: "Maria Sanchez" },
+  { text: "El proceso de rehabilitación fue muy bien acompañado y los resultados fueron sorprendentes. Me siento renovado gracias a todo el equipo de FisFit.", user: "Juan Perez" },
+  { text: "El enfoque personalizado de FisFit marcó la diferencia. Cada sesión fue diseñada para mis necesidades específicas y los avances fueron rápidos. ¡Un gran equipo!", user: "Ana Gutierrez" }
+];
+
+// Obtener el contenedor de testimonios ya existente en el HTML
+const contenedorTestimonios = document.querySelector('.testimonios');
+
+// Limpiar cualquier contenido anterior dentro del contenedor, excepto el primer testimonio
+const tituloTestimonios = contenedorTestimonios.querySelector('.title4');  // Título "Testimonios"
+contenedorTestimonios.innerHTML = ''; // Limpiar todo
+
+// Añadir el título "Testimonios"
+
+// Crear los testimonios dinámicamente en HTML
+testimoniosData.forEach((testimonio, index) => {
+  const section = document.createElement('section');
+  section.classList.add('testimonials', 'container');
+  
+  const testimonialText = document.createElement('h1');
+  testimonialText.classList.add('testimonio');
+  testimonialText.textContent = `"${testimonio.text}"`;
+
+  const userName = document.createElement('p');
+  userName.classList.add('users');
+  userName.textContent = `-${testimonio.user}`;
+  
+  // Añadir el título con la clase .title4 para aplicar el estilo
+  const testimonioTitle = document.createElement('h1');
+  testimonioTitle.classList.add('title4'); // Usamos la clase .title4 ya definida en CSS
+  testimonioTitle.textContent = 'Testimonios'; // Título para cada testimonio
+  
+  section.appendChild(testimonioTitle); // Añadir el título al testimonio
+  section.appendChild(testimonialText); // Añadir el texto del testimonio
+  section.appendChild(userName); // Añadir el nombre del usuario
+  contenedorTestimonios.appendChild(section); // Añadir el testimonio al contenedor
+});
+
+// Obtener todas las secciones de testimonios
+const testimonios = document.querySelectorAll('.testimonials');
+let currentIndex = 0;
+
+// Función para cambiar el testimonio visible
+function cambiarTestimonio() {
+  // Ocultar el testimonio actual
+  testimonios[currentIndex].classList.remove('visible');
+  
+  // Actualizar el índice del testimonio actual
+  currentIndex = (currentIndex + 1) % testimonios.length;
+
+  // Mostrar el siguiente testimonio
+  testimonios[currentIndex].classList.add('visible');
+}
+
+// Mostrar el primer testimonio (que ya está en HTML)
+testimonios[currentIndex].classList.add('visible');
+
+// Inicializar la animación para cambiar los testimonios
+setInterval(cambiarTestimonio, 5000); // Cambia cada 5 segundos
