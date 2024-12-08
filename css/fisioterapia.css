@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -8,20 +8,149 @@ body {
     background-color: #f9f9f9;
 }
 
-header {
-    text-align: center;
-    padding: 2rem;
-    background-color: #018be8;
+/* Navbar */
+/* General container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute; /* Superpuesto al hero */
+    top: 0;
+    left: 0;
+    width: 100%; /* Abarca todo el ancho */
+    z-index: 10; /* Por encima del contenido */
     color: white;
+    transition: background-color 0.3s ease, position 0.3s ease;
 }
 
-header h1 {
+.navbar.scrolled {
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.8); /* Gris transparente */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+    width: 150px;
+}
+
+/* Enlaces de la barra de navegación - para escritorio */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Cambiado de fixed a relative */
+    z-index: 15;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white; /* Color blanco */
+    font-size: 16px; /* Tamaño de fuente normal */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease; /* Añadimos una transición suave */
+    padding: 10px 10px; /* Espaciado alrededor del texto */
+}
+
+.nav-links li a:hover {
+    transform: translateY(-5px); /* Animación al hover */
+}
+
+.nav-links li a::after {
+    content: ''; /* Línea decorativa */
+    position: absolute;
+    bottom: -5px; /* Separación de la línea respecto al texto */
+    left: 0;
+    width: 0;
+    height: 2px; /* Grosor de la línea */
+    background-color: #000; /* Azul claro */
+    transition: width 0.3s ease; /* Animación de la línea */
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* Línea abarca todo el ancho del enlace */
+}
+
+.btn-blue {
+    background-color: #0800ff;
+    padding: 20px 20px;
+}
+
+.btn-blue:hover {
+    background-color: #018be8;
+}
+
+/* Estilo para el botón de la versión móvil (menú hamburguesa) */
+.menu-toggle {
+    display: none; /* Oculto en escritorio */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), 
+                url('../img/fisioterapia.jpg') no-repeat center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero .container {
+    text-align: center;
+}
+
+.hero-content h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
 }
 
-header p {
+.hero-content p {
     font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn-hero {
+    padding: 10px 20px;
+    background-color: #00c6ff; /* Azul claro */
+    color: #004d7a; /* Azul oscuro */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-hero:hover {
+    background-color: white;
+    color: #004d7a;
 }
 
 /* Therapy Section */
@@ -134,11 +263,58 @@ header p {
     transform: scale(1.05);
 }
 
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden; /* Evita el desbordamiento */
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal video {
+    width: 100%;
+    height: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.close-btn:hover {
+    color: #ff0000;
+}
+
 /* Appointment Section */
 .appointment {
     text-align: center;
     padding: 2rem;
-    background-color: #018be8;
+    background: linear-gradient(45deg, #d3d3df, #018be8);
     color: white;
 }
 
@@ -165,6 +341,7 @@ header p {
 .appointment .btn:hover {
     background-color: #eaeaea;
 }
+
 /* Responsive Design */
 
 /* Para pantallas menores a 1200px (Tabletas grandes y laptops pequeñas) */
@@ -214,6 +391,40 @@ header p {
     .benefit-item {
         margin: 0 auto;
         max-width: 300px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        list-style: none;
+        margin: 0;
+        padding-top: 150px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 15px 15px;
     }
 }
 
