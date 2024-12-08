@@ -98,3 +98,25 @@ testimonios[currentIndex].classList.add('visible');
 
 // Inicializar la animación para cambiar los testimonios
 setInterval(cambiarTestimonio, 5000); // Cambia cada 5 segundos
+
+// Detectar el evento de scroll
+let lastScrollTop = 0; // Variable para recordar la última posición del scroll
+
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  const body = document.body;
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition > lastScrollTop) {
+    // Si estamos haciendo scroll hacia abajo
+    body.classList.add('scroll-active'); // Añadir la clase para activar estilos
+  } else {
+    // Si estamos haciendo scroll hacia arriba (volviendo al top)
+    if (scrollPosition <= 0) {
+      body.classList.remove('scroll-active'); // Eliminar la clase cuando el scroll vuelva al principio
+    }
+  }
+
+  // Actualizar la última posición de scroll
+  lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
+});

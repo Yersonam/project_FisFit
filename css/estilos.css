@@ -48,54 +48,78 @@ header{
     
 }
 /* Nav */
-.nav{
-    --padding-container:0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-
+.nav {
+  background-color: transparent; /* Fondo transparente inicialmente */
+  position: fixed; /* Fijo en la parte superior */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones para el fondo y sombra */
+  box-shadow: none; /* Sin sombra inicial */
 }
 
-.nav__link{
-    display: grid;
-    margin-left: auto;
-    padding: 0;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    gap: 2em;
-}
-.nav__items{
-    list-style: none;
-}
-.btn-blue{
-    background-color: #0800ff;
-    padding: 13px 20px;
-    /* border-radius: 30px; */
-}
-.btn-blue:hover{
-    background-color: #018be8;
-}
-.nav__links{
-    color: #fff;
-    text-decoration: none;
-}
-.nav__menu{
-    margin-left: auto;
-    cursor: pointer;
-    display: none;
-}
-.nav__bars{
-    display: block;
-    width: 30px;
+/* Cuando se hace scroll hacia abajo */
+body.scroll-active .nav {
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(63, 63, 63, 0.3)); /* Degradado negro con transparencia */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar efecto de flotante */
 }
 
-.nav__close{
-    display: var(--show, none);
+/* Estilos para los elementos dentro del nav */
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; /* Espaciado en el contenedor */
 }
+
+.nav__link {
+  display: flex;
+  gap: 1.5em; /* Espaciado entre los elementos del menú */
+  margin-left: auto;
+  padding: 0;
+  align-items: center;
+}
+
+.nav__items {
+  list-style: none;
+}
+
+.nav__links {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__menu {
+  margin-left: auto;
+  cursor: pointer;
+  display: none;
+}
+
+.nav__bars {
+  display: block;
+  width: 30px;
+}
+
+.nav__close {
+  display: var(--show, none);
+}
+.btn-blue {
+  background-color: #0800ff;
+  padding: 10px 10px;
+}
+.btn-blue:hover {
+  background-color: #018be8;
+}
+
+
 
 /* HERO CONTAINER */
 .hero__container{
-    margin-top: 15rem;
+    margin-top: 20rem;
+    padding-top: 200px;
+    padding-bottom: 200px;
 }
 .hero__title{
     width: 50%;
@@ -289,7 +313,7 @@ main{
 
 /* Footer */
 footer{
-        background: linear-gradient(45deg, #0800ff, #018be8);
+  background: linear-gradient(45deg, #d3d3df, #018be8);
 }
 .foot{
     display: flex;
@@ -347,7 +371,7 @@ footer{
 /* Responsive Design */
 
 /* Móviles (pantallas de hasta 600px) */
-@media (max-width: 600px) {
+@media (max-width: 727px) {
     /* Ajustes de navegación */
     .nav__link {
         display: none;
@@ -395,15 +419,12 @@ footer{
     
   
     /* Ajustes de hero */
-    .hero__title {
-      font-size: 1.5rem;
-      width: 100%;
-      text-align: center;
-      margin-left: 0;
+    .hero__container{
+      padding-top: 30px;
+      padding-bottom: 500px;
     }
-    .cta {
-      margin: 30px 100px;
-      padding: 15px 15px;
+    .cta{
+      padding: 10px 10px;
     }
     .container .title3{
         margin-top: 50px;
@@ -436,6 +457,13 @@ footer{
       gap: 1rem;
     }
   }
+  @media (min-width: 450px){
+    .cta{
+      padding: 20px 30px;
+      text-align: center;
+      margin-left: 0px;
+  }
+}
   
   /* Tabletas (pantallas de hasta 992px) */
   @media (max-width: 992px) {
@@ -465,6 +493,11 @@ footer{
       width: 100%;
     }
     .cta {
-        margin: 30px 135px;
+        margin: 10px 60px;
+    }
+  }
+  @media (max-width: 1162px){
+    .hero__container{
+      padding-bottom: 500px;
     }
   }
