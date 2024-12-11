@@ -309,38 +309,60 @@ body {
 .close-btn:hover {
     color: #ff0000;
 }
-
-/* Appointment Section */
-.appointment {
-    text-align: center;
-    padding: 2rem;
+/* Footer */
+footer{
     background: linear-gradient(45deg, #d3d3df, #018be8);
-    color: white;
-}
-
-.appointment h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.appointment p {
-    margin-bottom: 1.5rem;
-}
-
-.appointment .btn {
-    display: inline-block;
-    background-color: #ffffff;
-    color: #0078A8;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.appointment .btn:hover {
-    background-color: #eaeaea;
-}
+  }
+  .foot{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+  }
+  .foot__Caja1--paragraph{
+      margin-bottom: 2rem;
+  }
+  .foot__Caja1--title5{
+      color: #000;
+  }
+  .foot__Caja2{
+      display: flex;
+      flex-direction: column;
+  }
+  .foot__Caja2__listas{
+      margin-bottom: 1rem;
+      padding-left: 0;
+      display: inline-block;
+  }
+  .foot__Caja2__listas__item{
+      list-style: none;    
+  }
+  .foot__Caja2__listas__item--link{
+      text-decoration: none;
+      color: #fff;
+      line-height: 2rem;
+      cursor: pointer;
+  }
+  .foot__Caja2__redes{
+      display: flex;
+      column-gap: 2rem;
+  }
+  .foot__Caja2__redes--Instagram{
+      color: #000;
+      font-size: 1.6rem;
+      text-decoration: none;
+  }
+  .foot__Caja2__redes--Ex{
+      color: #000;
+      font-size: 1.6rem;
+      text-decoration: none;
+  }
+  .foot__Caja2__redes--Pinterest{
+      color: #000;
+      font-size: 1.6rem;
+      text-decoration: none;
+  }
 
 /* Responsive Design */
 
@@ -426,6 +448,11 @@ body {
         font-weight: bold;
         padding: 15px 15px;
     }
+    .foot {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
 }
 
 /* Para pantallas menores a 480px (Móviles pequeños) */
